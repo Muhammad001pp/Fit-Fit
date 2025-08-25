@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "FitDesk: build & run iOS Simulator",
+			"type": "shell",
+			"command": "bash -lc '\nset -euo pipefail\ncd \"/Users/mukhumaevmagomed/Fit-Fit/FitDesk_iOS_MVP\"\n\nif ! command -v xcodegen >/dev/null 2>&1; then\n  echo \"[ERROR] Требуется XcodeGen. Установите: brew install xcodegen\" >&2\n  exit 1\nfi\n\n# 1) Генерация Xcode проекта\nbash ./Scripts/gen_xcodeproj.sh\n\n# 2) Сборка для iOS Simulator\nxcodebuild -project FitDesk.xcodeproj -scheme FitDesk -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath build | xcpretty || true\n\nAPP=\"build/Build/Products/Debug-iphonesimulator/FitDesk.app\"\nif [ ! -d \"$APP\" ]; then\n  echo \"[ERROR] Не найден .app: $APP\" >&2\n  exit 2\nfi\n\n# 3) Поиск/запуск симулятора\nUDID=$(xcrun simctl list devices available | awk -F \"[()]\" '/iPhone/ {print $2; exit}')\nif [ -z \"${UDID:-}\" ]; then\n  echo \"[ERROR] Не найден доступный iPhone-симулятор. Установите любой runtime в Xcode.\" >&2\n  exit 3\nfi\n\n# Запуск симулятора (если ещё не запущен)\nxcrun simctl boot \"$UDID\" >/dev/null 2>&1 || true\nxcrun simctl bootstatus \"$UDID\" -b\n\n# 4) Установка и запуск приложения\nxcrun simctl install \"$UDID\" \"$APP\"\nxcrun simctl launch \"$UDID\" com.fitdesk.app\n\necho \"[OK] Приложение запущено на симуляторе ($UDID).\"'\n",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "FitDesk: build & run iOS Simulator",
+			"type": "shell",
+			"command": "bash -lc '\nset -euo pipefail\ncd \"/Users/mukhumaevmagomed/Fit-Fit/FitDesk_iOS_MVP\"\n\nif ! command -v xcodegen >/dev/null 2>&1; then\n  echo \"[ERROR] Требуется XcodeGen. Установите: brew install xcodegen\" >&2\n  exit 1\nfi\n\n# 1) Генерация Xcode проекта\nbash ./Scripts/gen_xcodeproj.sh\n\n# 2) Сборка для iOS Simulator (Debug)\nxcrun xcodebuild -project FitDesk.xcodeproj -scheme FitDesk -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath build | xcpretty || true\n\nAPP=\"build/Build/Products/Debug-iphonesimulator/FitDesk.app\"\nif [ ! -d \"$APP\" ]; then\n  echo \"[ERROR] Не найден .app: $APP\" >&2\n  exit 2\nfi\n\n# 3) Поиск/запуск симулятора (первый доступный iPhone)\nUDID=$(xcrun simctl list devices available | awk -F \"[()]\" '/iPhone/ {print $2; exit}')\nif [ -z \"${UDID:-}\" ]; then\n  echo \"[ERROR] Не найден доступный iPhone-симулятор. Установите любой runtime в Xcode (Preferences → Platforms).\" >&2\n  exit 3\nfi\n\nxcrun simctl boot \"$UDID\" >/dev/null 2>&1 || true\nxcrun simctl bootstatus \"$UDID\" -b\n\n# 4) Установка и запуск приложения\nxcrun simctl install \"$UDID\" \"$APP\"\nxcrun simctl launch \"$UDID\" com.fitdesk.app || true\n\necho \"[OK] Приложение установлено и запущено на симуляторе ($UDID).\"'\n",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build"
+		}
+	]
+}

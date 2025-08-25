@@ -1,0 +1,68 @@
+[
+  {
+    "id": "2799adad-5fb3-49fc-a8d6-d47ed488ec29",
+    "title": "Подтягивания широким хватом к груди",
+    "group": "Спина",
+    "type": "Силовые",
+    "recommendedTimeMin": null,
+    "recommendedReps": 10,
+    "recommendedWeight": 12.5,
+    "image": "figure.pullup"
+  },
+  {
+    "id": "b0710098-8d94-430d-bdf8-0812c624185a",
+    "title": "Тяга штанги в наклоне",
+    "group": "Спина",
+    "type": "Силовые",
+    "recommendedTimeMin": null,
+    "recommendedReps": 10,
+    "recommendedWeight": 60,
+    "image": "dumbbell"
+  },
+  {
+    "id": "61b7bff9-5812-4cb3-80dd-7e592be258a1",
+    "title": "Жим гантелей на горизонтальной скамье",
+    "group": "Грудь",
+    "type": "Силовые",
+    "recommendedReps": 10,
+    "recommendedWeight": 22,
+    "image": "dumbbell"
+  },
+  {
+    "id": "e7b5f29f-e196-40fc-be62-36168b033a2b",
+    "title": "Беговая дорожка",
+    "group": "Ноги",
+    "type": "Кардио",
+    "recommendedTimeMin": 8,
+    "recommendedReps": null,
+    "recommendedWeight": null,
+    "image": "figure.run.circle"
+  },
+  {
+    "id": "35ee7cf4-3c25-4054-a238-65dfa0d843c9",
+    "title": "Махи гантелей в стороны",
+    "group": "Дельты",
+    "type": "Силовые",
+    "recommendedReps": 12,
+    "recommendedWeight": 12,
+    "image": "dumbbell"
+  },
+  {
+    "id": "c1e3798a-b13e-4a8a-9cfb-7735dfa173db",
+    "title": "Сгибание рук с гантелями 'молот'",
+    "group": "Руки Бицепс",
+    "type": "Силовые",
+    "recommendedReps": 12,
+    "recommendedWeight": 12,
+    "image": "dumbbell"
+  },
+  {
+    "id": "8db85311-ee98-4f0f-93f6-42ba9318eb04",
+    "title": "Французский жим с гантелями лёжа",
+    "group": "Руки Трицепс",
+    "type": "Силовые",
+    "recommendedReps": 10,
+    "recommendedWeight": 16,
+    "image": "dumbbell"
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "e1ed07f7-7017-40a8-885e-d99ae7742c99",
+    "date": "2025-02-23T00:00:00Z",
+    "weight": 87
+  },
+  {
+    "id": "c8de11cc-3cde-4367-b83c-ddfb1f67582e",
+    "date": "2025-03-20T00:00:00Z",
+    "weight": 89
+  },
+  {
+    "id": "42e8913b-1005-4adf-b420-f4445e3937bf",
+    "date": "2025-06-22T00:00:00Z",
+    "weight": 83.7,
+    "height": 170,
+    "neck": 44,
+    "shoulders": 60,
+    "chest": 110,
+    "waist": 95,
+    "bicepsL": 40,
+    "bicepsR": 40,
+    "forearmL": 30,
+    "forearmR": 30,
+    "wristL": 18,
+    "wristR": 18,
+    "glutes": 102
+  }
+]

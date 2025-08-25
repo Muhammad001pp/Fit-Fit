@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "iOS: Build & Install & Launch (Simulator)",
+      "type": "shell",
+      "command": "bash -lc",
+      "args": [
+        "set -e; cd \"${workspaceFolder}/FitDesk_iOS_MVP\"; xcodebuild -project FitDesk.xcodeproj -scheme FitDesk -sdk iphonesimulator -configuration Debug -quiet build; APP_PATH=$(find \"$HOME/Library/Developer/Xcode/DerivedData\" -type d -name \"FitDesk.app\" -path \"*/Build/Products/Debug-iphonesimulator/FitDesk.app\" -print -quit); DEVICE_ID=\"${input:simulatorId}\"; xcrun simctl boot \"$DEVICE_ID\" || true; xcrun simctl install \"$DEVICE_ID\" \"$APP_PATH\"; xcrun simctl launch \"$DEVICE_ID\" com.fitdesk.app || true"
+      ],
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "simulatorId",
+      "type": "promptString",
+      "description": "UUID симулятора (xcrun simctl list devices). Пример: 37362363-5098-41FF-A970-10315472F2B0",
+      "default": "37362363-5098-41FF-A970-10315472F2B0"
+    }
+  ]
+}
